@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Buogos Junkbox — Pesquisa de Artistas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">🎸</span>
+        <div>
+          <div class="logo-title">The Buogos Junkbox</div>
+          <div class="logo-sub">Explore a história dos maiores artistas da música</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PESQUISA -->
+    <section class="search-section">
+      <div class="search-wrap">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Pesquise por uma banda ou artista…"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button id="searchBtn">Pesquisar</button>
+        </div>
+        <p class="search-hint">Experimente: <span class="hint-tag" onclick="quickSearch('Bob Dylan')">Bob Dylan</span> · <span class="hint-tag" onclick="quickSearch('The Beatles')">The Beatles</span> · <span class="hint-tag" onclick="quickSearch('Led Zeppelin')">Led Zeppelin</span> · <span class="hint-tag" onclick="quickSearch('Nirvana')">Nirvana</span></p>
+      </div>
+    </section>
+
+    <!-- LOADING -->
+    <div id="loadingState" class="loading-state hidden">
+      <div class="vinyl-spinner">
+        <div class="vinyl-disc"></div>
+      </div>
+      <p>Buscando informações…</p>
+    </div>
+
+    <!-- ERRO -->
+    <div id="errorState" class="error-state hidden">
+      <div class="error-icon">😕</div>
+      <h3>Nenhum resultado encontrado</h3>
+      <p id="errorMsg">Não conseguimos encontrar informações sobre este artista. Tente outro nome.</p>
+    </div>
+
+    <!-- RESULTADO PRINCIPAL -->
+    <section id="resultsSection" class="hidden">
+
+      <div class="artist-card">
+        <div class="artist-hero">
+          <div id="artistImage" class="artist-img-wrap">
+            <div class="artist-img-placeholder">🎵</div>
+          </div>
+          <div class="artist-meta">
+            <h2 id="artistName" class="artist-name"></h2>
+            <p id="artistDesc" class="artist-desc"></p>
+            <a id="wikiLink" class="wiki-btn" target="_blank" rel="noopener">
+              Ver no Wikipedia →
+            </a>
+          </div>
+        </div>
+
+        <!-- BIOGRAFIA -->
+        <div id="bioSection" class="info-block hidden">
+          <h3 class="block-title"><span class="block-icon">📖</span> História &amp; Biografia</h3>
+          <div id="bioText" class="bio-text"></div>
+        </div>
+
+        <!-- MAIORES SUCESSOS -->
+        <div id="songsSection" class="info-block hidden">
+          <h3 class="block-title"><span class="block-icon">🎵</span> Maiores Sucessos</h3>
+          <ul id="songsList" class="songs-list"></ul>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- CAMPO DE PERGUNTAS -->
+    <section id="questionSection" class="question-section hidden">
+      <div class="question-card">
+        <h3 class="question-title">💬 Tem alguma dúvida sobre este artista?</h3>
+        <p class="question-sub">Faça uma pergunta e buscaremos a resposta para você</p>
+        <div class="question-box">
+          <input
+            type="text"
+            id="questionInput"
+            placeholder="Ex: Quando foi formada a banda? Qual é o álbum mais famoso?"
+          />
+          <button id="questionBtn">Perguntar</button>
+        </div>
+        <div id="questionResult" class="question-result hidden"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>🎵 The Buogos Junkbox — Feito para os amantes de música · Dados via Wikipedia &amp; iTunes</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
